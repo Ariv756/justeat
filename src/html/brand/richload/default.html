@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <link rel="stylesheet" href="css/main.css" type="text/css" />
+        <link href="../../css/common/rays/ray-anim-reveal.css" rel="stylesheet" id="revealCss" />
+	</head>
+	<body>
+        @@include("../../../svg/generated/branddefault.svg")
+        <ft-default clicktag="1">
+            <div id="animContainer">
+                <div class="backgroundImage">
+                    <ft-dynamic name="cuisine"></ft-dynamic>
+                </div>
+                <div class="textHolder">
+                    <div class="textGroup">
+                        <div class="textItem text-1">
+                            <ft-dynamic name="copy-1"></ft-dynamic>
+                        </div>
+                        <div class="textItem text-2">
+                            <ft-dynamic name="copy-2"></ft-dynamic>
+                        </div>
+                    </div>
+                    <div class="textItem text-3">
+                        <ft-dynamic name="copy-3"></ft-dynamic>
+                    </div>
+                </div>
+                <div class="endFrame">
+                    @@include("../../common/logo-stacked.html")
+                    @@include("../../common/logo.html")
+                    @@include("../../common/ctaButton.html", {"cta" : "cta"})
+                </div>
+            </div>
+        </ft-default>
+        <script src="js/main.js"> </script>
+    </body>
+</html>

@@ -1,0 +1,203 @@
+.clear{
+    @include hideLogo();
+}
+
+
+
+@mixin clearOut(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-clear-anim-out;
+
+        }
+    
+    }
+    
+}
+@mixin clear(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-clear-anim;
+
+        }
+    
+    }
+    
+}
+
+@each $label, $map in $positions {
+    
+    $size-start : map-get($map, start-size);
+    $size-mid : map-get($map, mid-size);
+    $size-clear : 0;
+    $rotate-start : map-get($map, start-rotate);
+    $rotate-mid : map-get($map, mid-rotate);
+    $rotate-end : map-get($map, end-rotate);
+    $rotate-clear : map-get($map, clear-rotate);
+    $colour : map-get($map, colour);
+    
+    .clear{
+    
+        .#{$label}{
+            
+            animation-name: #{$label}-clear-anim;
+            @media (min-width:700px) and (max-width:899px){
+                animation-name: #{$label}-clear-anim-large;
+            }
+            @media (min-width:900px){
+                animation-name: #{$label}-clear-anim-xLarge;
+            }
+            @media (min-height: 600px) and (max-height: 699px){
+                animation-name: #{$label}-clear-anim-med;
+            }
+            @media (min-height:700px){
+                animation-name: #{$label}-clear-anim-xLarge;
+            }
+            @media (min-height:1200px){
+                animation-name: #{$label}-clear-anim-xxLarge;
+            }
+            
+        }
+        
+    }
+    
+    
+    @keyframes #{$label}-clear-anim{
+        
+        0%{
+            transform: rotate($rotate-start);
+            animation-timing-function: ease-in;
+            @include setWidth($size-start);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid);
+        }
+        100%{
+            transform: rotate($rotate-clear);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    @keyframes #{$label}-clear-anim-lo{
+        
+        0%{
+            transform: rotate($rotate-start);
+            animation-timing-function: ease-in;
+            @include setWidth($size-start + $loAddSize);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid + $loAddSize);
+        }
+        100%{
+            transform: rotate($rotate-clear);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    
+    
+    @keyframes #{$label}-clear-anim-med{
+        
+        0%{
+            transform: rotate($rotate-start);
+            animation-timing-function: ease-in;
+            @include setWidth($size-start + $medAddSize);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid + $medAddSize);
+        }
+        100%{
+            transform: rotate($rotate-clear);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    
+    @keyframes #{$label}-clear-anim-large{
+        
+        0%{
+            transform: rotate($rotate-start);
+            animation-timing-function: ease-in;
+            @include setWidth($size-start + $largeAddSize);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid + $largeAddSize);
+        }
+        100%{
+            transform: rotate($rotate-clear);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    
+    @keyframes #{$label}-clear-anim-xLarge{
+        
+        0%{
+            transform: rotate($rotate-start);
+            animation-timing-function: ease-in;
+            @include setWidth($size-start + $xLargeAddSize);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid + $xLargeAddSize);
+        }
+        100%{
+            transform: rotate($rotate-clear);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    
+    @keyframes #{$label}-clear-anim-xxLarge{
+        
+        0%{
+            transform: rotate($rotate-start);
+            animation-timing-function: ease-in;
+            @include setWidth($size-start + $xxLargeAddSize);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid + $xxLargeAddSize);
+        }
+        100%{
+            transform: rotate($rotate-clear);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    
+    @keyframes #{$label}-clear-anim-out{
+        
+        0%{
+            transform: rotate($rotate-clear);
+            animation-timing-function: ease-in;
+            @include setWidth($size-clear);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid);
+        }
+        100%{
+            transform: rotate($rotate-start);
+            @include setWidth($size-start);
+        }
+        
+    }
+}

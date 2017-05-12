@@ -1,0 +1,7 @@
+{
+	"bin/banners/working/richloads/branddefaultRich/js/main.js": [
+		"src/js/common/onRichload.js",
+		"src/js/common/frameControl.js",
+		"src/js/brand/default/main.js"
+	]
+}

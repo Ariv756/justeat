@@ -1,0 +1,953 @@
+.textItem{
+    
+    position: absolute;
+    left:0;
+    top:50%;
+    right:0;
+    height: auto;
+    padding:0;
+    margin: auto;
+    width:auto;
+    height: auto;
+    @include setPos("mid");
+    box-sizing: border-box;
+    text-align: center;
+    transition: $animShort opacity ease-out, $animShort transform ease-out;
+    
+    ft-dynamic{
+        
+        position: relative;
+        top:0;
+        left:0;
+        width:100%;
+        height: auto;
+        padding: 0;
+        text-align: center;
+        box-sizing: border-box;
+        font-family: 'Ubuntu', sans-serif;
+        @include fontSize(16);
+        @include lineHeight(18);
+        font-weight: bold;
+        font-style: italic;
+        color:$justEatRed;
+        margin:auto;
+        
+        @media (min-height: 250px){
+            @include fontSize(30);
+            @include lineHeight(32);
+        }
+    }
+}
+
+.textHolder{
+    position: absolute;
+    left:40px;
+    top:0;
+    right:0;
+    bottom:0;
+    display: block;
+    
+    @media (min-height: 250px){
+        right:15px;
+    }
+}
+
+.textGroup{
+    
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+    display: block;
+    transform: translate3d(0,0,0);
+    
+    @media (min-height:250px){
+        top:50%;
+        height:auto;
+        transform: translate3d(0,-50%,0);
+    }
+    
+    .textItem{
+        position: absolute;
+        @media (min-height:250px){
+            position: relative;
+        }
+    }
+}
+
+.text-1{
+    @include setPos(mid);
+    @media (min-height: 250px){
+        @include setPos(reset);
+    }
+}
+.text-2{
+    @include setPos(start);
+    
+    @media (min-height: 250px){
+        @include setPos(reset);
+    }
+}
+.text-3{
+    @include setPos(start);
+    text-shadow: rgba(0,0,0,0.6) 1px 1px 2px;
+    
+    ft-dynamic{
+        color:#fff;
+    }
+}
+
+.backgroundImage{
+    position: absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    display: block;
+    opacity: 0;
+}
+
+.endFrame{
+    position: absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    display: block;
+    background-color: $justEatRed;
+    opacity: 0;
+    transition: $animShort opacity ease-out;
+    
+    @media (min-height: 250px){
+        height: 60px;
+        background-color: rgba(0,0,0,0.6);
+        top:initial;
+    }
+}
+
+.logoHolder{
+    position: absolute;
+    right:8px;
+    top:4px;
+    bottom:4px;
+    width:50px;
+    height: auto;
+    display: block;
+    
+    @media (min-height: 250px){
+        right:16px;
+        width:130px;
+        bottom:5px;
+        top:5px;
+    }
+    
+    .logo.stacked{
+        display: block;
+        
+        @media (min-height: 250px){
+            display: none;
+        }
+    }
+    .logo.horizontal{
+        display: none;
+        
+        @media (min-height: 250px){
+            display: block;
+        }
+    }
+}
+
+.logo{
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    
+    svg{
+        use{
+            fill: #fff;
+        }
+    }
+}
+
+.buttonHolder{
+    position: absolute;
+    top:0;
+    right: 66px;
+    bottom:0;
+    width:auto;
+    display: block;
+    left:initial;
+    
+    @media (min-height: 250px){
+        right:initial;
+        width:50%;
+        left:0;
+    }
+    
+    ft-dynamic{
+        top:50%;
+        left:50%;
+        transform: translate3d(-50%, -50%, 0);
+        text-align: center;
+        @include fontSize(14px);
+        @include lineHeight(16px);
+    }
+}
+
+
+.frame-2{
+    .text-1{
+        @include setPos(end);
+        
+        @media (min-height: 250px){
+            @include setPos(reset);
+        }
+    }
+    .text-2{
+        @include setPos(mid);
+        
+        @media (min-height: 250px){
+            @include setPos(reset);
+        }
+    }
+}
+.frame-3{
+    .text-1{
+        @include setPos(start);
+    }
+    .text-2{
+        @include setPos(start);
+    }
+    .text-3{
+        @include setPos(mid);
+    }
+    .backgroundImage{
+        opacity: 1;
+    }
+    .endFrame{
+        opacity: 0;
+        @media (min-height: 250px){
+            opacity: 1;
+        }
+    }
+}
+.frame-4{
+    .text-1, .text-2{
+        
+        @include setPos(reset);
+        
+        @media (min-height: 250px){
+            @include setPos(hide);
+        }
+    }
+    .text-3{
+        @include setPos(mid);
+    }
+    .backgroundImage{
+        opacity: 1;
+    }
+    .endFrame{
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+//.backgroundColour{
+//    position: absolute;
+//    left:0;
+//    top:0;
+//    right:0;
+//    bottom:0;
+//    display: block;
+//    opacity: 0;
+//    transition: opacity $animShort ease-out;
+//}
+//
+//@for $i from 1 through 11 {
+//    .backgroundColour.fill-#{$i}-bg{
+//        background-color: map-get($colourRays, fill-#{$i});
+//        
+//        ft-dynamic, div{
+//             color: #fff;
+//        }
+//    }
+//
+//}
+//
+//.aside-ray{
+//    position: absolute;
+//    left:0;
+//    top:0;
+//    bottom:0;
+//    right:0;
+//    display: block;
+//    opacity: 0;
+//    
+//    .burst{
+//        
+//        .ray{
+//            left:20px;
+//            top:40%;
+//            
+//            @media (min-height:60px) and (max-height:89px){
+//                left:50px;
+//                top:40%;
+//            }
+//            @media (min-height:90px) and (max-height:199px){
+//                left:345px;
+//                top:50%;
+//            }
+//            
+//            @media (min-height:200px) and (max-width:899px) and (max-height:599px){
+//                left:50%;
+//                top: 180px;
+//            }
+//            @media (min-height:200px) and (min-width:900px){
+//                left:630px;
+//                top:50%;
+//            }
+//            @media (min-height:400px) and (max-height:599px){
+//                left:50%;
+//                top: 330px;
+//            }
+//            @media (min-height:600px) and (max-width:159px){
+//                left:50%;
+//                top:310px;
+//            }
+//            @media (min-height:600px) and (min-width:160px) and (max-width:299px){
+//                left:50%;
+//                top:340px;
+//            }
+//            @media (min-height:600px) and (min-width:300px){
+//                top: 420px;
+//                left:60%;
+//            }
+//            @media (min-height:700px){
+//                top:580px;
+//                left:60%;
+//            }
+//            @media (min-height:1000px){
+//                top:840px;
+//                left:60%;
+//            }
+//            @media (min-height:1200px){
+//                top:1020px;
+//                left:60%;
+//            }
+//        }
+//        
+//        .fill-1{
+//            opacity: 0;
+//        }
+//    }
+//}
+//
+//.imageText{
+//    position: absolute;
+//    left:0;
+//    top:0;
+//    right:0;
+//    bottom:0;
+//    display: block;
+//    opacity: 0;
+//    
+//    img{
+//        position: absolute;
+//        width: 345px;
+//        height: 90px;
+//        left:0;
+//        top:0;
+//        display: block;
+//        
+//        @media (min-height:200px) and (max-width:899px) and (max-height:599px){
+//            width:300px;
+//            height: 180px;
+//        }
+//        @media (min-height:200px) and (min-width:900px){
+//            width: 630px;
+//            height: 250px;
+//        }
+//        @media (min-height:400px) and (max-height:599px){
+//            width: 320px;
+//            height: 330px;
+//        }
+//        @media (min-height:600px) and (max-width:159px){
+//            width: 120px;
+//            height: 310px;
+//        }
+//        @media (min-height:600px) and (min-width:160px) and (max-width:299px){
+//            width: 160px;
+//            height: 340px;
+//        }
+//        @media (min-height:600px) and (min-width:300px){
+//            width: 300px;
+//            height: 420px;
+//        }
+//        @media (min-height:700px){
+//            width: 1024px;
+//            height: 580px;
+//        }
+//        @media (min-height:1000px){
+//            width: 768px;
+//            height: 840px;
+//        }
+//        @media (min-height:1200px){
+//            width: 800px;
+//            height: 1020px;
+//        }
+//    }
+//    
+//    .aside-text{
+//        position: absolute;
+//        left:0;
+//        top:0;
+//        bottom:0;
+//        right:0;
+//        display: block;
+//        background-color: $justEatRed;
+//        
+//        @media (min-height: 90px) and (max-height:199px){
+//            left:345px;
+//        }
+//        
+//        @media (min-height:200px) and (max-width:899px) and (max-height:599px){
+//            left:0;
+//            top:180px;
+//        }
+//        @media (min-height:200px) and (min-width:900px) and (max-height:599px){
+//            left:630px;
+//            top:0;
+//        }
+//        @media (min-height:400px) and (max-height:599px){
+//            top: 330px;
+//        }
+//        @media (min-height:600px) and (max-width:159px){
+//            top: 310px;
+//            left:0;
+//        }
+//        @media (min-height:600px) and (min-width: 160px) and (max-width:299px){
+//            top: 340px;
+//            left:0;
+//        }
+//        @media (min-height:600px) and (min-width: 300px){
+//            top: 420px;
+//            left:0;
+//        }
+//        @media (min-height:700px){
+//            bottom:0;
+//            top:initial;
+//            height: 768px - 580px;
+//        }
+//        @media (min-height:1000px){
+//            bottom:0;
+//            top:initial;
+//            height: 1024px - 840px;
+//        }
+//        @media (min-height:1200px){
+//            bottom:0;
+//            top:initial;
+//            height: 1280px - 1020px;
+//        }
+//    }
+//}
+//    
+//.logoHolder{
+//    position: absolute;
+//    left:50px;
+//    top:0;
+//    width:auto;
+//    right:0;
+//    height: 100%;
+//    display: block;
+//    padding:0;
+//    margin:0;
+//    
+//    @media (min-height:50px) and (max-height:59px){
+//        left:25px;
+//        width:50%;
+//        right:initial;
+//    }
+//    @media (min-height:60px) and (max-height:89px){
+//        left:75px;
+//        right:initial;
+//        width:50%;
+//    }
+//    @media (min-height:90px) and (max-height:199px){
+//        left:25px;
+//        width:50%;
+//        right:initial;
+//    }
+//    @media (min-height:200px) and (max-width:899px){
+//        left:0;
+//        width:50%;
+//        right:initial;
+//    }
+//    
+//    @media (min-height:200px) and (min-width:900px){
+//        width:100%;
+//        height: 50%;
+//        left:0;
+//        right:initial;
+//    }
+//    @media (min-height:400px){
+//        top:50%;
+//        left:0;
+//        width:100%;
+//        height:50%;
+//        right:initial;
+//    }
+//    @media (min-height:700px){
+//        height: 100%;
+//        width:50%;
+//        top:40px;
+//        left:50%;
+//        right:initial;
+//    }
+//    
+//    .logo{
+//        position: absolute;
+//        top:50%;
+//        left:50%;
+//        width: 110px;
+//        height: 22px;
+//        display: block;
+//        transform: translate3d(-50%, -50%, 0);
+//        
+//        @media (min-height:60px) and (max-height:199px){
+//            width: 160px;
+//            height: 30px;
+//        }
+//        
+//        @media (min-height:200px) and (max-width:899px) and (max-height:599px){
+//            width:120px;
+//            height: 30px;
+//        }
+//        
+//        @media (min-height:200px) and (min-width:900px) and (max-height:599px){
+//            width:200px;
+//            height: 40px;
+//            transform: translate3d(-50%, 0, 0);
+//            top:initial;
+//            bottom: 20px;
+//        }
+//        @media (min-height:600px) and (max-width:299px){
+//            width:100px;
+//            height: 60px;
+//            transform: translate3d(-50%, 0, 0);
+//            top:20px;
+//        }
+//        @media (min-height:600px) and (min-width:300px){
+//            width:200px;
+//            height: 40px;
+//            transform: translate3d(-50%, 0, 0);
+//            top:10px;
+//        }
+//        @media (min-height:400px) and (max-height:599px){
+//            width:200px;
+//            height: 40px;
+//            transform: translate3d(-50%, 0, 0);
+//            top:10px;
+//        }
+//        @media (min-height:700px){
+//            top:50%;
+//            transform: translate3d(0, -50%, 0);
+//            width: 275px;
+//            height:60px;
+//            left: 20px;
+//        }
+//        
+//        svg{
+//            use{
+//                fill:#fff;
+//            }
+//        }
+//    }
+//    .logo.stacked{
+//        opacity: 0;
+//        @media (min-height:600px) and (max-width: 299px){
+//            opacity: 1;
+//        }
+//    }
+//    .logo.horizontal{
+//        opacity: 1;
+//        @media (min-height:600px) and (max-width: 299px){
+//            opacity: 0;
+//        }
+//    }
+//}
+//.buttonHolder{
+//    position: absolute;
+//    left:50px;
+//    top:0;
+//    width:auto;
+//    right:0;
+//    height: 100%;
+//    display: block;
+//    padding:0;
+//    margin:0;
+//    
+//    @media (min-height:50px) and (max-height: 399px) and (max-width:900px){
+//        left: 50%;
+//        width:50%;
+//        right:initial;
+//    }
+//    
+//    @media (min-height:200px) and (min-width:900px){
+//        width:100%;
+//        height: 50%;
+//        left:0;
+//        top:50%;
+//        right:initial;
+//    }
+//    
+//    @media (min-height:400px){
+//        height:50%;
+//        left:0;
+//        width:100%;
+//        right:initial;
+//    }
+//    
+//    @media (min-height:700px){
+//        height: 100%;
+//        width:50%;
+//        top:40px;
+//        right:initial;
+//    }
+//    
+//    ft-dynamic[name="cta"], .cta{
+//        position: absolute;
+//        left:50%;
+//        top:50%;
+//        display: block;
+//        transform: translate3d(-50%, -50%, 0);
+//        text-align: center;
+//        padding: 6px 8px;
+//        @include fontSize(14);
+//        @include lineHeight(14);
+//        max-width: none;
+//        width:110px;
+//        
+//        @media (min-height:50px) and (max-height:59px){
+//            @include fontSize(16);
+//            @include lineHeight(16);
+//        }
+//        @media (min-height:60px) and (max-height:199px){
+//            @include fontSize(18);
+//            @include lineHeight(20);
+//            width:130px;
+//            padding: 10px 12px;
+//        }
+//        
+//        @media (min-height:200px) and (min-width:900px) and (max-height:599px){
+//            width:auto;
+//            @include fontSize(24);
+//            @include lineHeight(26);
+//            transform: translate3d(-50%, 0, 0);
+//            top:20px;
+//            padding: 10px 20px;
+//            width:60%;
+//        }
+//        @media (min-height:600px) and (max-width:299px){
+//            width:80%;
+//            @include fontSize(20);
+//            @include lineHeight(22);
+//            transform: translate3d(-50%, 0, 0);
+//            top:initial;
+//            max-width: 200px;
+//            padding: 10px;
+//            bottom:20px;
+//        }
+//        @media (min-height:400px) and (max-height:599px){
+//            width:auto;
+//            @include fontSize(20);
+//            @include lineHeight(22);
+//            transform: translate3d(-50%, 0, 0);
+//            padding:8px 16px;
+//            bottom:20px;
+//            top:initial;
+//        }
+//        @media (min-height:600px) and (min-width:300px){
+//            @include fontSize(22);
+//            @include lineHeight(24);
+//            bottom:10px;
+//            width:80%;
+//            @include fontSize(20);
+//            @include lineHeight(22);
+//            transform: translate3d(-50%, 0, 0);
+//            top:initial;
+//            max-width: 200px;
+//            padding: 10px;
+//        }
+//        @media (min-height: 700px){
+//            @include fontSize(36);
+//            @include lineHeight(38);
+//            transform: translate3d(0, -50%, 0);
+//            top:50%;
+//            left: initial;
+//            right: 20px;
+//            bottom:initial;
+//            max-width: none;
+//            padding:12px 20px;
+//            width:auto;
+//        }
+//    }
+//}
+//
+//.frame-1{
+//    .backgroundColour{
+//        opacity: 0;
+//    }
+//    .aside-ray{
+//        opacity: 0;
+//    }
+//    .imageText{
+//        opacity: 0;
+//    }
+//}
+//.frame-2{
+//    .backgroundColour{
+//        opacity: 1;
+//    }
+//    .aside-ray{
+//        opacity: 0;
+//    }
+//    .imageText{
+//        opacity: 0;
+//    }
+//}
+//.frame-3-nobg{
+//    .backgroundColour{
+//        opacity: 0 !important;
+//    }
+//}
+//.frame-3, .frame-3-nobg{
+//    .backgroundColour{
+//        opacity: 1;
+//    }
+//    .imageText{
+//        opacity: 0;
+//    }
+//    
+//    .aside-ray{
+//        opacity: 1;
+//        .burst.animate{
+//            
+//            @include clearOut();
+//            
+//            @media (min-height: 90px) and (max-height:199px){
+//                @include verticalMed();
+//            }
+//
+//            @media (min-height:200px) and (max-width:899px) and (max-height:599px){
+//                @include horizontal();
+//            }
+//            @media (min-height:200px) and (min-width:900px){
+//                @include verticalMed();
+//            }
+//            @media (min-height:600px){
+//                @include horizontalMed();
+//            }
+//            @media (min-height:700px){
+//                @include horizontalLarge();
+//            }
+//        }
+//    }
+//}
+//
+//
+//
+//.frame-4{
+//    .backgroundColour{
+//        opacity: 1;
+//    }
+//    .imageText{
+//        opacity: 1;
+//        
+//        .logoHolder{
+//            opacity: 1;
+//        }
+//        .buttonHolder{
+//            opacity: 0;
+//            
+//            @media (min-height:50px){
+//                opacity: 1;
+//            }
+//        }
+//    }
+//    .aside-ray{
+//        opacity: 1;
+//        .burst.animate{
+//            @include clearOut();
+//            
+//            @media (min-height: 90px) and (max-height:199px){
+//                @include verticalMed();
+//            }
+//
+//            @media (min-height:200px) and (max-width:899px) and (max-height:599px){
+//                @include horizontal();
+//            }
+//            @media (min-height:200px) and (min-width:900px){
+//                @include verticalMed();
+//            }
+//            @media (min-height:600px){
+//                @include horizontalMed();
+//            }
+//            @media (min-height:700px){
+//                @include horizontalLarge();
+//            }
+//        }
+//    }
+//}
+//.frame-4-a{
+//    .backgroundColour{
+//        opacity: 1;
+//    }
+//    .imageText{
+//        opacity: 1;
+//        
+//        .logoHolder{
+//            opacity: 0;
+//            
+//            @media (min-height:50px){
+//                opacity: 1;
+//            }
+//        }
+//        .buttonHolder{
+//            opacity: 1;
+//        }
+//    }
+//    .aside-ray{
+//        opacity: 1;
+//        .burst.animate{
+//            @include clearOut();
+//            
+//            @media (min-height: 90px) and (max-height:199px){
+//                @include verticalMed();
+//            }
+//
+//            @media (min-height:200px) and (max-width:899px) and (max-height:599px){
+//                @include horizontal();
+//            }
+//            @media (min-height:200px) and (min-width:900px){
+//                @include verticalMed();
+//            }
+//            @media (min-height:600px){
+//                @include horizontalMed();
+//            }
+//            @media (min-height:700px){
+//                @include horizontalLarge();
+//            }
+//        }
+//    }
+//}
+//.frame-5, .still{
+//    .backgroundColour{
+//        opacity: 0;
+//    }
+//    .imageText{
+//        opacity: 1;
+//        
+//        .logoHolder{
+//            opacity: 0;
+//            
+//            @media (min-height:50px){
+//                opacity: 1;
+//            }
+//        }
+//        .buttonHolder{
+//            opacity: 1;
+//        }
+//    }
+//    .aside-ray{
+//        opacity: 1;
+//        .burst.animate{
+//            
+//            @include clear();
+//            
+//            @media (min-height: 90px) and (max-height:199px){
+//                @include verticalOutMed();
+//            }
+//
+//            @media (min-height:200px) and (max-width:899px) and (max-height:599px){
+//                @include horizontalOut();
+//            }
+//            @media (min-height:200px) and (min-width:900px){
+//                @include verticalOutMed();
+//            }
+//            @media (min-height:600px){
+//                @include horizontalOutMed();
+//            }
+//            @media (min-height:700px){
+//                @include horizontalOutLarge();
+//            }
+//        }
+//        .burst{
+//            
+//            @include default-ray();
+//            
+//            @media (min-height: 90px) and (max-height:199px){
+//                @include verticalStatic-large();
+//            }
+//
+//            @media (min-height:200px) and (max-width:899px) and (max-height:599px){
+//                @include horizontal-side();
+//            }
+//            @media (min-height:200px) and (min-width:900px){
+//                @include verticalStatic-large();
+//            }
+//            @media (min-height:600px){
+//                @include horizontal-side-med();
+//            }
+//            @media (min-height:700px){
+//                @include horizontal-side-large();
+//            }
+//        }
+//    }
+//}
+//
+//.frame-6-onlybg{
+//    .backgroundColour{
+//        opacity: 1 !important;
+//    }
+//}
+//.frame-6, .frame-6-onlybg{
+//    .backgroundColour{
+//        opacity: 0;
+//    }
+//    .imageText{
+//        opacity: 0;
+//    }
+//    .aside-ray{
+//        opacity: 1;
+//        .burst.animate{
+//            
+//            @include clear();
+//            
+//            @media (min-height: 90px) and (max-height:199px){
+//                @include verticalOutMed();
+//            }
+//
+//            @media (min-height:200px) and (max-width:899px) and (max-height:599px){
+//                @include horizontalOut();
+//            }
+//            @media (min-height:200px) and (min-width:900px){
+//                @include verticalOutMed();
+//            }
+//            @media (min-height:600px){
+//                @include horizontalOutMed();
+//            }
+//            @media (min-height:700px){
+//                @include horizontalOutLarge();
+//            }
+//        }
+//    }
+//}

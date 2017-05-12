@@ -1,0 +1,92 @@
+{
+	"name": "brand-default",
+	"sizes": [
+		"300x50",
+        "300x250"
+	],
+	"clicktags": 2,
+	"files": {
+		"init_html": {
+			"input": "src/htmlinline/brand/workingdefault.html",
+			"output": "src/htmlinline/brand/default/sizes/"
+		},
+		"init_css": {
+			"input": "src/css/common/initial-combined.css",
+			"output": "src/css/common/flat/"
+		},
+		"rich_html": {
+			"input": "src/htmlinline/brand/richload/default.html",
+			"output": "src/htmlmin/brand/default/richloads/branddefaultRich_{size}/"
+		},
+		"rich_css": {
+			"input": "src/css/brand/default-combined.css",
+			"output": "bin/banners/sizes/brand/richloads/branddefaultRich_{size}/css/"
+		},
+		"rich_images": {
+			"cuisine": {
+				"type": "size",
+				"input": "bin/banners/images/food/italian/pizza-margherita-{size}.jpg",
+				"output": "bin/banners/sizes/brand/richloads/branddefaultRich_{size}/images/pizza-margherita-{size}.jpg"
+			}
+		},
+		"rich_js": {
+			"input": "bin/banners/working/richloads/branddefaultRich/js/main.js",
+			"output": "bin/banners/sizes/brand/richloads/branddefaultRich_{size}/js/"
+		},
+		"manifest": {
+			"input": "src/js/common/manifest.json",
+			"output": "bin/banners/sizes/brand/default/{size}/",
+			"working": "bin/banners/working/brand/default/"
+		}
+	},
+	"instantAds": [
+		{
+			"name": "copy-3",
+			"type": "text",
+			"default": "Find your flavour"
+		},
+		{
+			"name": "copy-1",
+			"type": "text",
+			"default": "The food you really want"
+		},
+		{
+			"name": "copy-2",
+			"type": "text",
+			"default": "is just a tap away"
+		},
+		{
+			"name": "cta",
+			"type": "text",
+			"default": "Tap the App"
+		},
+		{
+			"name": "cuisine",
+			"type": "image",
+			"default": "images/pizza-margherita.jpg"
+		},
+		{
+			"name": "clickTag",
+			"type": "text",
+			"default": "https://www.just-eat.co.uk/"
+		}
+	],
+	"richLoads": [
+		{
+			"name": "branddefaultRich",
+			"src": "branddefaultRich"
+		}
+	],
+	"zips": [
+		{
+			"name": "brand_default_base_{size}",
+			"input": "bin/banners/sizes/brand/default/{size}/",
+			"output": "bin/outputs/brand/default/"
+		},
+		{
+			"name": "branddefaultRich_{size}",
+			"input": "bin/banners/sizes/brand/richloads/branddefaultRich_{size}/",
+			"output": "bin/outputs/brand/default/"
+		}
+	]
+}

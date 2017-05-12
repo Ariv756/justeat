@@ -1,0 +1,354 @@
+//Rays have large red area at the bottom with rays bursting upwards
+@mixin horizontalStatic(){
+    
+    @each $label, $map in $positions {
+        
+        
+        $rotate-start : map-get($map, horiz-start-rotate);
+        $size-start : map-get($map, horiz-start-size);
+
+        .#{$label}{
+
+            transform: rotate($rotate-start);
+            @include setWidth($size-start);
+            
+            
+
+        }
+    
+    }
+    
+}
+@mixin horizontalFlipStatic(){
+    
+    @each $label, $map in $positions {
+        
+        
+        $rotate-start : map-get($map, horiz-start-rotate);
+        $size-start : map-get($map, horiz-start-size);
+
+        .#{$label}{
+
+            transform: rotate($rotate-start - 190deg);
+            @include setWidth($size-start);
+
+        }
+    
+    }
+    
+}
+@mixin horizontalFlipStatic-small(){
+    
+    @each $label, $map in $positions {
+        
+        
+        $rotate-start : map-get($map, horiz-start-rotate);
+        $size-start : map-get($map, horiz-start-size);
+
+        .#{$label}{
+
+            transform: rotate($rotate-start - 190deg);
+            @include setWidth($size-start + (200px * 0.6));
+
+        }
+    
+    }
+    
+}
+@mixin horizontalFlipStatic-med(){
+    
+    @each $label, $map in $positions {
+        
+        
+        $rotate-start : map-get($map, horiz-start-rotate);
+        $size-start : map-get($map, horiz-start-size);
+
+        .#{$label}{
+
+            transform: rotate($rotate-start - 190deg);
+            @include setWidth($size-start + (600px * 0.6));
+
+        }
+    
+    }
+    
+}
+@mixin horizontalFlipStatic-large(){
+    
+    @each $label, $map in $positions {
+        
+        
+        $rotate-start : map-get($map, horiz-start-rotate);
+        $size-start : map-get($map, horiz-start-size);
+
+        .#{$label}{
+
+            transform: rotate($rotate-start - 190deg);
+            @include setWidth($size-start + (300px * 0.6));
+
+        }
+    
+    }
+    
+}
+
+@mixin horizontal-side(){
+    @each $label, $map in $positions {
+        
+        .#{$label}{
+    
+            $rotate-end :  map-get($map, horiz-end-rotate);
+            $size-end : map-get($map, horiz-end-size);
+
+            transform: rotate($rotate-end);
+            @include setWidth($size-end);
+        }
+
+    }
+}
+@mixin horizontal-side-med(){
+    @each $label, $map in $positions {
+        
+        .#{$label}{
+    
+            $rotate-end :  map-get($map, horiz-end-rotate);
+            $size-end : map-get($map, horiz-end-size);
+
+            transform: rotate($rotate-end);
+            @include setWidth($size-end + 200px);
+        }
+
+    }
+}
+@mixin horizontal-side-large(){
+    @each $label, $map in $positions {
+        
+        .#{$label}{
+    
+            $rotate-end :  map-get($map, horiz-end-rotate);
+            $size-end : map-get($map, horiz-end-size);
+
+            transform: rotate($rotate-end);
+            @include setWidth($size-end + 400px);
+        }
+
+
+    }
+}
+
+@mixin horizontal(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-horizontal-anim;
+        }
+    
+    }
+    
+}
+@mixin horizontalMed(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-horizontal-anim-med;
+        }
+    
+    }
+    
+}
+@mixin horizontalLarge(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-horizontal-anim-large;
+        }
+    
+    }
+    
+}
+@mixin horizontalOut(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-horizontal-anim-out;
+        }
+    
+    }
+    
+}
+@mixin horizontalOutMed(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-horizontal-anim-out-med;
+        }
+    
+    }
+    
+}
+@mixin horizontalOutLarge(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-horizontal-anim-out-large;
+        }
+    
+    }
+    
+}
+
+@mixin horizontalTrans($fill){
+    
+    @each $label, $map in $positions {
+        
+        $rotate : map-get($map, horiz-trans-rotate-#{$fill});
+        $size : map-get($map, horiz-trans-size-#{$fill});
+
+        .#{$label}{
+
+            transform: rotate($rotate);
+            @include setWidth($size);
+            transition: all ease-in $animMed;
+
+        }
+        
+    }
+    
+}
+
+
+@each $label, $map in $positions {
+    
+    $rotate-clear : map-get($map, clear-rotate);
+    $size-clear : 0px;
+    $rotate-mid : map-get($map, mid-rotate);
+    $rotate-end :  map-get($map, horiz-end-rotate);
+    $size-mid : map-get($map, mid-size);
+    $size-end : map-get($map, horiz-end-size);
+    
+    
+    @keyframes #{$label}-horizontal-anim{
+        
+        0%{
+            transform: rotate($rotate-clear - 360deg);
+            animation-timing-function: ease-in;
+            @include setWidth($size-clear);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid);
+        }
+        100%{
+            transform: rotate($rotate-end + 360deg);
+            @include setWidth($size-end);
+        }
+        
+    }
+    
+    @keyframes #{$label}-horizontal-anim-out{
+        
+        0%{
+            transform: rotate($rotate-end);
+            @include setWidth($size-end);
+            animation-timing-function: ease-in;
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid);
+        }
+        100%{
+            transform: rotate($rotate-clear + 360deg);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    @keyframes #{$label}-horizontal-anim-med{
+        
+        0%{
+            transform: rotate($rotate-clear - 360deg);
+            animation-timing-function: ease-in;
+            @include setWidth($size-clear);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid + 200px);
+        }
+        100%{
+            transform: rotate($rotate-end + 360deg);
+            @include setWidth($size-end + 200px);
+        }
+        
+    }
+    
+    @keyframes #{$label}-horizontal-anim-out-med{
+        
+        0%{
+            transform: rotate($rotate-end);
+            @include setWidth($size-end + 200px);
+            animation-timing-function: ease-in;
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid + 200px);
+        }
+        100%{
+            transform: rotate($rotate-clear + 360deg);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    @keyframes #{$label}-horizontal-anim-large{
+        
+        0%{
+            transform: rotate($rotate-clear - 360deg);
+            animation-timing-function: ease-in;
+            @include setWidth($size-clear);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid + 600px);
+        }
+        100%{
+            transform: rotate($rotate-end + 360deg);
+            @include setWidth($size-end + 400px);
+        }
+        
+    }
+    
+    @keyframes #{$label}-horizontal-anim-out-large{
+        
+        0%{
+            transform: rotate($rotate-end);
+            @include setWidth($size-end + 400px);
+            animation-timing-function: ease-in;
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid + 400px);
+        }
+        100%{
+            transform: rotate($rotate-clear + 360deg);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    
+}

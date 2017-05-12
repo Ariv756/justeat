@@ -1,0 +1,171 @@
+@mixin topRightIn(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-angle-topRight-anim-in;
+            
+        }
+    
+    }
+    
+}
+@mixin topRightOut(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-angle-topRight-anim-out;
+            
+        }
+    
+    }
+    
+}
+
+//Naming convention 
+@mixin static-col-angle($colour, $angle){
+    
+    @each $label, $map in $positions {
+
+        $varRotate : "angle-" + $colour + "-" + $angle + "-start-rotate";
+        $varSize : "angle-" + $colour + "-" + $angle + "-start-size";
+        
+        //@debug $varRotate;
+        //@debug $varSize;
+        
+        $rotate : map-get($map, $varRotate);
+        $size : map-get($map, $varSize);
+        
+        .#{$label}{
+            
+            transform: rotate($rotate);
+            @include setWidth($size);
+            
+        }
+    
+    }
+    
+}
+
+@mixin animate-col-angle-clear($colour, $angle){
+    
+    @each $label, $map in $positions {
+        
+        .#{$label}{
+            
+            animation-name: #{$label}-angle-#{$colour}-#{$angle}-clear;
+            
+        }
+    
+    }
+    
+}
+
+@each $label, $map in $positions {
+    
+    $rotate-clear : map-get($map, clear-rotate);
+    $size-clear : 0px;
+    $rotate-mid : map-get($map, mid-rotate);
+    $rotate-end : map-get($map, angle-topRight-end-rotate);
+    $size-mid : map-get($map, mid-size);
+    $size-end : map-get($map, angle-topRight-end-size);
+    
+    @keyframes #{$label}-angle-topRight-anim-in{
+        
+        0%{
+            transform: rotate($rotate-clear - 360deg);
+            animation-timing-function: ease-in;
+            @include setWidth($size-clear);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid);
+        }
+        100%{
+            transform: rotate($rotate-end);
+            @include setWidth($size-end);
+        }
+        
+    }
+}
+@each $label, $map in $positions {
+    
+    $rotate-clear : map-get($map, clear-rotate);
+    $size-clear : 0px;
+    $rotate-mid : map-get($map, mid-rotate);
+    $rotate-end : map-get($map, angle-topRight-end-rotate);
+    $size-mid : map-get($map, mid-size);
+    $size-end : map-get($map, angle-topRight-end-size);
+    
+    @keyframes #{$label}-angle-topRight-anim-out{
+        
+        
+        0%{
+            transform: rotate($rotate-end);
+            @include setWidth($size-end);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-in;
+            @include setWidth($size-mid);
+        }
+        100%{
+            transform: rotate($rotate-clear - 360deg);
+            animation-timing-function: ease-out;
+            @include setWidth($size-clear);
+        }
+        
+    }
+    
+    $rotate-start : map-get($map, angle-fill8-left-start-rotate);
+    $size-start : map-get($map, angle-fill8-left-start-size);
+    $rotate-clear-mid : map-get($map, angle-fill8-left-med-rotate);
+    $size-clear-mid : map-get($map, angle-fill8-left-med-size);
+    
+    @keyframes #{$label}-angle-fill8-left-clear{
+        
+        0%{
+            transform: rotate($rotate-start);
+            @include setWidth($size-start);
+            animation-timing-function: ease-in;
+        }
+        50%{
+            transform: rotate($rotate-clear-mid);
+            @include setWidth($size-clear-mid);
+            animation-timing-function: ease-out;
+        }
+        100%{
+            transform: rotate(270deg + 360deg);
+            @include setWidth(0);
+        }
+        
+    }
+    
+    $rotate-start : map-get($map, angle-fill8-up-start-rotate);
+    $size-start : map-get($map, angle-fill8-up-start-size);
+    $rotate-clear-mid : map-get($map, angle-fill8-up-med-rotate);
+    $size-clear-mid : map-get($map, angle-fill8-up-med-size);
+    
+    @keyframes #{$label}-angle-fill8-up-clear{
+        
+        0%{
+            transform: rotate($rotate-start);
+            @include setWidth($size-start);
+            animation-timing-function: ease-in;
+        }
+        50%{
+            transform: rotate($rotate-clear-mid);
+            @include setWidth($size-clear-mid);
+            animation-timing-function: ease-out;
+        }
+        100%{
+            transform: rotate(270deg + 360deg);
+            @include setWidth(0);
+        }
+        
+    }
+}

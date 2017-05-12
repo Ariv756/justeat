@@ -1,0 +1,65 @@
+@each $label, $map in $positions {
+    
+    $size-start : map-get($map, start-size);
+    $size-mid : map-get($map, mid-size);
+    $size-end : map-get($map, end-size);
+    $rotate-start : map-get($map, start-rotate);
+    $rotate-mid : map-get($map, mid-rotate);
+    $rotate-end : map-get($map, end-rotate);
+    $colour : map-get($map, colour);
+    
+    .revealIn{
+    
+        .#{$label}{
+            
+            animation-name: #{$label}-revealIn-anim;
+            
+            @media (min-height: 600px){
+                animation-name: #{$label}-revealIn-anim-med;
+            }
+            
+        }
+        
+    }
+    
+    
+    @keyframes #{$label}-revealIn-anim{
+        
+        0%{
+            transform: rotate($rotate-start);
+            animation-timing-function: ease-in;
+            @include setWidth($size-start);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid);
+        }
+        100%{
+            transform: rotate($rotate-end);
+            @include setWidth($size-end);
+        }
+        
+    }
+    
+    
+    @keyframes #{$label}-revealIn-anim-med{
+        
+        0%{
+            transform: rotate($rotate-start);
+            animation-timing-function: ease-in;
+            @include setWidth($size-start + $medAddSize);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid + $medAddSize);
+        }
+        100%{
+            transform: rotate($rotate-end);
+            @include setWidth($size-end + $medAddSize);
+        }
+        
+    }
+    
+}

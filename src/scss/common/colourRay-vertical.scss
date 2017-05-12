@@ -1,0 +1,217 @@
+@mixin vertical(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-vertical-anim;
+        }
+    
+    }
+    
+}
+@mixin verticalMed(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-vertical-anim-med;
+        }
+    
+    }
+    
+}
+@mixin verticalOut(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-vertical-anim-out;
+
+        }
+    
+    }
+    
+}
+@mixin verticalOutMed(){
+    
+    @each $label, $map in $positions {
+
+        .#{$label}{
+
+            animation-name: #{$label}-vertical-anim-out-med;
+
+        }
+    
+    }
+    
+}
+@mixin verticalStatic(){
+    
+    @each $label, $map in $positions {
+        
+        
+        $rotate-end : map-get($map, vert-end-rotate);
+        $size-end : map-get($map, vert-end-size);
+
+        .#{$label}{
+
+            transform: rotate($rotate-end);
+            @include setWidth($size-end);
+
+        }
+    
+    }
+    
+}
+@mixin verticalStatic-large(){
+    
+    @each $label, $map in $positions {
+        
+        
+        $rotate-end : map-get($map, vert-end-rotate);
+        $size-end : map-get($map, vert-end-size);
+
+        .#{$label}{
+
+            transform: rotate($rotate-end);
+            @if ($label == "fill-1"){
+                @include setWidth($size-end + 1200px);
+            } @else{
+                @include setWidth($size-end + 100px);
+            }
+
+        }
+    
+    }
+    
+}
+
+//transition animatons
+
+@mixin verticalTrans($fill){
+    
+    @each $label, $map in $positions {
+        
+        $rotate : map-get($map, vert-trans-rotate-#{$fill});
+        $size : map-get($map, vert-trans-size-#{$fill});
+
+        .#{$label}{
+
+            transform: rotate($rotate);
+            @include setWidth($size);
+            transition: all ease-in $animMed;
+
+        }
+        
+    }
+    
+}
+
+//keyframe animations
+
+@each $label, $map in $positions {
+    
+    $rotate-clear : map-get($map, clear-rotate);
+    $size-clear : 0px;
+    $rotate-mid : map-get($map, mid-rotate);
+    $rotate-end : map-get($map, vert-end-rotate);
+    $size-mid : map-get($map, mid-size);
+    $size-end : map-get($map, vert-end-size);
+    
+    @keyframes #{$label}-vertical-anim{
+        
+        0%{
+            transform: rotate($rotate-clear - 360deg);
+            animation-timing-function: ease-in;
+            @include setWidth($size-clear);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid);
+        }
+        100%{
+            transform: rotate($rotate-end);
+            @include setWidth($size-end);
+        }
+        
+    }
+    
+    @keyframes #{$label}-vertical-anim-out{
+        
+        0%{
+            transform: rotate($rotate-end);
+            animation-timing-function: ease-in;
+            @include setWidth($size-end);
+        }
+        50%{
+            transform: rotate($rotate-mid + 360deg);
+            animation-timing-function: ease-out;
+            @include setWidth($size-mid);
+        }
+        100%{
+            transform: rotate($rotate-clear + 360deg);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    
+    @keyframes #{$label}-vertical-anim-med{
+        
+        0%{
+            transform: rotate($rotate-clear - 360deg);
+            animation-timing-function: ease-in;
+            @include setWidth($size-clear);
+        }
+        50%{
+            transform: rotate($rotate-mid);
+            animation-timing-function: ease-out;
+            @if ($label == "fill-1"){
+                @include setWidth($size-mid + 1200px);
+            } @else{
+                @include setWidth($size-mid + 200px);
+            }
+            
+        }
+        100%{
+            transform: rotate($rotate-end);
+            @if ($label == "fill-1"){
+                @include setWidth($size-end + 1200px);
+            } @else{
+                @include setWidth($size-end + 100px);
+            }
+        }
+        
+    }
+    
+    @keyframes #{$label}-vertical-anim-out-med{
+        
+        0%{
+            transform: rotate($rotate-end);
+            animation-timing-function: ease-in;
+            @if ($label == "fill-1"){
+                @include setWidth($size-end + 1200px);
+            } @else{
+                @include setWidth($size-end + 100px);
+            }
+        }
+        50%{
+            transform: rotate($rotate-mid + 360deg);
+            animation-timing-function: ease-out;
+            @if ($label == "fill-1"){
+                @include setWidth($size-mid + 1200px);
+            } @else{
+                @include setWidth($size-mid + 200px);
+            }
+        }
+        100%{
+            transform: rotate($rotate-clear + 360deg);
+            @include setWidth($size-clear);
+        }
+        
+    }
+    
+}

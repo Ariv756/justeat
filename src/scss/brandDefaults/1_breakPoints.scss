@@ -1,0 +1,30 @@
+$breakPointsSize: (
+    min : 180px,
+    tiny : 320px,
+    small : 360px,
+    between : 414px,
+    med : 768px,
+    large : 1024px,
+    big : 1200px
+);
+$breakPointsPadding: (
+    min : 8px,
+    small : 16px,
+    med : 24px,
+    large : 32px,
+    big : 48px
+);
+
+$defaultFontFamily : sans-serif;
+$headerFontFamily : sans-serif;
+
+$defaultFontFamilyLoaded : 'Hind Vadodara', sans-serif;
+$headerFontFamilyLoaded : 'Ubuntu', sans-serif;
+
+$fontHeaderWeightLight : 400;
+$fontHeaderWeightMedium : 500;
+$fontHeaderWeightBold : 500;
+
+$fontBodyWeightLight : 300;
+$fontBodyWeightMedium : 500;
+$fontBodyWeightBold : 500;

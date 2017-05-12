@@ -1,0 +1,132 @@
+$fontBaseSize : 14;
+$fontBaseLine : 18;
+
+$featureOverlap-small: 20px;
+$featureOverlap-med: 50px;
+
+$buttonRadius: 2px;
+
+$animShort: 0.2s;
+$animMed: 0.5s;
+$animLong: 0.7s;
+
+/* Ui elements */
+
+$infoBg : #FFE0B4;
+$error : #D50525;
+$errorBg : #EAEAEA;
+
+/* BTAs specific */
+
+$btaPurple: #3f1b46;
+
+
+
+////New colours, phase out others
+
+/*font colours */
+
+$headerTextColour : #333333;
+$subTextColour    : #4A4A4A;
+$bodyTextColour   : #535353;
+$hintText         : #777777;
+
+$linkColour : #2771CD;
+$linkColourHover : #14509C;
+
+$linkColourSec : $headerTextColour;
+$linkColourSecHover : #000000;
+
+/*brand */
+
+$justEatRed: #fa0029;
+$starColour : $justEatRed;
+
+$colourRays : (
+    fill-1       : $justEatRed,
+    fill-2       : #FF5959,
+    fill-3       : #00AC41,
+    fill-4       : #95D600,
+    fill-5       : #E2E71F,
+    fill-6       : #2F7DE1,
+    fill-7       : #2BACE4,
+    fill-8       : #7DCAEB,
+    fill-9       : #FF5000,
+    fill-10      : #FF9E16,
+    fill-11      : #FFD700
+);
+
+$colourAA : (
+    red    : #D50525,
+    green  : #04822C,
+    orange : #D63A0D,
+    blue   : $linkColour 
+);
+
+/* backgrounds */
+
+$BgWhite : #ffffff;
+$BgGrey : #f5f5f5;
+$BgUiElem : #EAEAEA;
+$keyLines : #CACACA;
+$deactive: #DDDDDD;
+
+/* Buttons */
+
+$primeButton: (
+    bg-up : $linkColour,
+    bg-over : $linkColourHover,
+    bg-active : $linkColourHover,
+    bg-sel : $linkColourHover,
+    border-up : #FFFFFF,
+    border-over : #FFFFFF,
+    border-active : #FFFFFF,
+    border-sel : #2BACE4,
+    text-up : #FFFFFF,
+    text-over : #FFFFFF,
+    text-active : #FFFFFF,
+    text-sel : #FFFFFF
+);
+$secButton: (
+    bg-up : #FFFFFF,
+    bg-over : #DBEBFF,
+    bg-active : #DBEBFF,
+    bg-sel : #DBEBFF,
+    border-up : $linkColour,
+    border-over : $linkColourHover,
+    border-active : $linkColourHover,
+    border-sel : #7DCAEB,
+    text-up : $linkColour,
+    text-over : $linkColourHover,
+    text-active : $linkColourHover,
+    text-sel : $linkColourHover
+);
+$thirdButton: (
+    bg-up : #FFFFFF,
+    bg-over : #FFFFFF,
+    bg-active : #FFFFFF,
+    bg-sel : #FFFFFF,
+    border-up : #535353,
+    border-over : #535353,
+    border-active : #535353,
+    border-sel : #2BACE4,
+    text-up : #535353,
+    text-over : #14509C,
+    text-active : #14509C,
+    text-sel : #14509C
+);
+$deactiveButton: (
+    bg-up : $deactive,
+    bg-over : $deactive,
+    bg-active : $deactive,
+    bg-sel : $deactive,
+    border-up : #ffffff,
+    border-over : #ffffff,
+    border-active : #ffffff,
+    border-sel : #ffffff,
+    text-up : #535353,
+    text-over : #535353,
+    text-active : #535353,
+    text-sel : #535353
+);
+

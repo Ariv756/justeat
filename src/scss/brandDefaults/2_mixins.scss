@@ -1,0 +1,274 @@
+$maxInputSize : 400px;
+
+@mixin inline($pos){
+    display:inline-block;
+    zoom:1;
+    *display:inline;
+    vertical-align: $pos;
+}
+
+@mixin fontSize($value){
+    
+    $remValue : $value / $fontBaseSize;
+    font-size: $value + px;
+    font-size: $remValue + rem;
+}
+@mixin lineHeight($value){
+    
+    $remValue : $value / $fontBaseSize;
+    line-height: $value + px;
+    line-height: $remValue + rem;
+    
+}
+
+@mixin opacity($val, $important:''){
+    @if $important == '!important' {
+        opacity: $val !important;
+         -ms-filter: unquote( '"progid:DXImageTransform.Microsoft.Alpha(Opacity=' + ($val * 100) + ')"' ) !important;
+    }@else{
+         -ms-filter: unquote( '"progid:DXImageTransform.Microsoft.Alpha(Opacity=' + ($val * 100) + ')"' );
+        opacity: $val;
+    }
+   
+}
+
+@mixin backgroundScale($val){
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("'" + $val + "'");
+    -ms-behavior: url(/wp-content/themes/JustEat-wp/backgroundsize.min.htc);
+}
+
+@mixin cssPie(){
+    behavior: url('/wp-content/themes/JustEat-wp/PIE.php');
+}
+
+@mixin heroImage($name, $format, $position, $folder){
+    
+    .heroImage{
+        background-position: $position;
+        
+        background-image: url($folder + $name + "lo_1x." + $format);
+        @media (min-resolution: 192dpi){
+            background-image: url($folder + $name + "lo_2x." + $format);
+        }
+        @media (min-resolution: 210dpi){
+            background-image: url($folder + $name + "lo_3x." + $format);
+        }
+        
+        @media (min-width: map-get($breakPointsSize, between)){
+            background-image: url($folder + $name + "med_1x." + $format);
+        }
+        @media (min-width: map-get($breakPointsSize, between)) and (min-resolution: 192dpi){
+            background-image: url($folder + $name + "med_2x." + $format);
+        }
+        @media (min-width: map-get($breakPointsSize, between)) and (min-resolution: 210dpi){
+            background-image: url($folder + $name + "med_3x." + $format);
+        }
+        
+        @media (min-width: map-get($breakPointsSize, med)){
+            background-image: url($folder + $name + "large_1x." + $format);
+        }
+        @media (min-width: map-get($breakPointsSize, med)) and (min-resolution: 192dpi){
+            background-image: url($folder + $name + "large_2x." + $format);
+        }
+        
+        @media (min-width: 1921px){
+            background-image: url($folder + $name + "xlarge_1x." + $format);
+        }
+        @media (min-width: 1921px) and (min-resolution: 192dpi){
+            background-image: url($folder + $name + "xlarge_2x." + $format);
+        }
+    }
+}
+
+/*Text*/
+
+@mixin header(){
+    color: $justEatRed;
+    font-weight: $fontHeaderWeightBold;
+    font-style: normal;
+    
+    @include fontSize(20);
+    @include lineHeight(26);
+    
+    @media (min-width: map-get($breakPointsSize, med)){
+        @include fontSize(24);
+        @include lineHeight(32);
+    }
+}
+
+@mixin heroHeader(){
+    color: #fff;
+    font-weight: $fontHeaderWeightBold;
+    font-style: normal;
+    
+    @include fontSize(24);
+    @include lineHeight(32);
+    
+    @media (min-width: map-get($breakPointsSize, tiny)){
+        @include fontSize(36);
+        @include lineHeight(42);
+    }
+    @media (min-width: map-get($breakPointsSize, med)){
+        @include fontSize(64);
+        @include lineHeight(66);
+    }
+}
+
+@mixin secondHeader(){
+    
+    color: $justEatRed;
+    @include fontSize(18);
+    @include lineHeight(24);
+    font-weight: $fontHeaderWeightMedium;
+    font-style: normal;
+    
+    @media (min-width: map-get($breakPointsSize, med)){
+        @include fontSize(22);
+        @include lineHeight(28);
+    }
+}
+
+@mixin sub_header(){
+    color: $subTextColour;
+    @include fontSize(16);
+    @include lineHeight(21);
+    font-weight: $fontHeaderWeightBold;
+    
+    @media (min-width: map-get($breakPointsSize, med)){
+        @include fontSize(16);
+        @include lineHeight(21);
+    }
+	
+	a{
+		color: $subTextColour;
+	}
+}
+
+@mixin bodyText(){
+    
+    @include fontSize(14);
+    @include lineHeight(19);
+    font-weight: $fontBodyWeightLight;
+    color: $bodyTextColour;
+    
+    @include textLink();
+}
+
+
+
+@mixin textLink_sec(){
+    a{
+        color: $linkColourSec;
+        text-decoration:none;
+    }
+    a:hover{
+        text-decoration:underline;
+        color: $linkColourSecHover;
+    }
+}
+@mixin textLink(){
+    a{
+        text-decoration:none;
+        color: $linkColour;
+    }
+    a:hover{
+        
+        text-decoration:underline;
+        color: $linkColourHover;
+    }
+}
+
+/* button */
+
+@mixin buttonPrime($pos){
+    
+    font-weight:$fontHeaderWeightMedium;
+    
+    @if $pos == up {
+        background-color: map-get($primeButton, bg-up);
+        border:1px solid map-get($primeButton, border-up);
+        color: map-get($primeButton, text-up);
+    }
+    @if $pos == over {
+        background-color: map-get($primeButton, bg-over);
+        border:1px solid map-get($primeButton, border-over);
+        color: map-get($primeButton, text-over);
+    }
+    @if $pos == focus {
+        background-color: map-get($primeButton, bg-sel);
+        border:1px solid map-get($primeButton, border-sel);
+        color: map-get($primeButton, text-sel);
+    }
+    @if $pos == down {
+        background-color: map-get($primeButton, bg-active);
+        border:1px solid map-get($primeButton, border-active);
+        color: map-get($primeButton, text-active);
+    }
+    
+    
+}
+@mixin buttonSecond($pos){
+    
+    font-weight:$fontHeaderWeightMedium;
+    
+    @if $pos == up {
+        background-color: map-get($secButton, bg-up);
+        border:1px solid map-get($secButton, border-up);
+        color: map-get($secButton, text-up);
+    }
+    @if $pos == over {
+        background-color: map-get($secButton, bg-over);
+        border:1px solid map-get($secButton, border-over);
+        color: map-get($secButton, text-over);
+    }
+    @if $pos == focus {
+        background-color: map-get($secButton, bg-sel);
+        border:1px solid map-get($secButton, border-sel);
+        color: map-get($secButton, text-sel);
+    }
+    @if $pos == down {
+        background-color: map-get($secButton, bg-active);
+        border:1px solid map-get($secButton, border-active);
+        color: map-get($secButton, text-active);
+    }
+    
+    
+}
+@mixin buttonThird($pos){
+    
+    font-weight:$fontHeaderWeightLight;
+    
+    @if $pos == up {
+        background-color: map-get($thirdButton, bg-up);
+        border:1px solid map-get($thirdButton, border-up);
+        color: map-get($thirdButton, text-up);
+    }
+    @if $pos == over {
+        background-color: map-get($thirdButton, bg-over);
+        border:1px solid map-get($thirdButton, border-over);
+        color: map-get($thirdButton, text-over);
+    }
+    @if $pos == focus {
+        background-color: map-get($thirdButton, bg-sel);
+        border:1px solid map-get($thirdButton, border-sel);
+        color: map-get($thirdButton, text-sel);
+    }
+    @if $pos == down {
+        background-color: map-get($thirdButton, bg-active);
+        border:1px solid map-get($thirdButton, border-active);
+        color: map-get($thirdButton, text-active);
+    }
+    
+    
+}
+
+@mixin buttonDeactive(){
+    background-color: map-get($deactiveButton, bg-up) !important;
+    border:1px solid map-get($deactiveButton, border-up) !important;
+    color: map-get($deactiveButton, text-up) !important;
+    pointer-events: none !important;
+    cursor: default !important;
+}

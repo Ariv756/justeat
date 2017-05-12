@@ -1,0 +1,8 @@
+.sass-cache/**/*
+bin/
+node_modules/
+src/css/**/*
+src/htmlmin/**/*
+src/images/**/*
+src/htmlinline/**/*
+src/svg/generated/**/*

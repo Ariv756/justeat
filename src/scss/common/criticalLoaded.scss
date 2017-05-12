@@ -1,0 +1,87 @@
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+html{
+    -webkit-text-size-adjust: 100%;
+    font-size: $fontBaseSize + px;
+    line-height: $fontBaseLine + px;
+}
+
+body{
+    position: static;
+    width:100%;
+    min-height: 100%;
+    display: block;
+    font-size: $fontBaseSize + px;
+    line-height: $fontBaseLine + px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.buttonHolder{
+    
+    ft-dynamic, .cta{
+        width:auto;
+        height: auto;
+        padding: 10.5px 16px;
+        margin:auto;
+        display:inline-block;
+        color: #fff;
+        border-radius: $buttonRadius;
+        @include fontSize(14);
+        @include lineHeight(14);
+        cursor: pointer;
+        transition: $animShort background-color ease-in-out, $animShort border ease-in-out, $animShort color ease-in-out, transform $animShort ease-in-out, opacity $animShort ease-in-out;
+        -webkit-appearance: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        outline: 0;
+        font-family: 'Ubuntu', sans-serif;
+        
+        @include buttonPrime(up);
+        
+        
+        font-weight: bold;
+    }
+}
+
+ft-default:hover{
+    ft-dynamic[name="cta"], .cta{
+        @include buttonPrime(over);
+        font-weight: bold;
+    }
+}
+ft-default:focus{
+    ft-dynamic[name="cta"], .cta{
+        @include buttonPrime(focus);
+        font-weight: bold;
+    }
+}
+ft-default:active{
+    ft-dynamic[name="cta"], .cta{
+        @include buttonPrime(down);
+        font-weight: bold;
+    }
+}
+
+ft-default[clicktag] {
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+    padding:0;
+    margin:0;
+    display: block;
+    overflow: hidden;
+}
+
+svg{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+    display: block;
+}

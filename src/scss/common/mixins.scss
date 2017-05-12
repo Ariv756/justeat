@@ -1,0 +1,88 @@
+$overShootIn : cubic-bezier(0.305, 1.330, 0.555, 1.005);
+$overShootOut : cubic-bezier(0.345, -0.005, 0.690, -0.355);
+
+@mixin setPos($pos){
+    
+    @if $pos == "start"{
+        transform: translate3d(0, -70%, 0);
+        opacity: 0;
+    }
+    @if $pos == "mid"{
+        opacity: 1;
+        transform: translate3d(0, -50%, 0);
+    }
+    @if $pos == "end"{
+        opacity: 0;
+        transform: translate3d(0, -30%, 0);
+    }
+    @if $pos == "reset"{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    @if $pos == "hide"{
+        opacity: 0;
+        transform: translate3d(0, 0, 0);
+    }
+    
+}
+
+@mixin pulseAnim($speed){
+    
+    animation-direction: normal;
+    animation-duration: $speed;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: anim-pulse;
+    transform-origin: 50% 50%;
+}
+@mixin pulseDelayAnim($speed){
+    
+    animation-direction: normal;
+    animation-duration: $speed;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: anim-pulse-delay;
+    transform-origin: 50% 50%;
+}
+
+@mixin fontfacename($name){
+    
+    @font-face {
+        font-family: $name;
+        src: url($name + ".woff2") format("woff2"), url($name + ".woff") format("woff"), url($name + ".otf") format("otf");
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+}
+
+@keyframes anim-pulse{
+    0% {
+        transform: scale(1, 1);
+    }
+    25% {
+        transform: scale(1.1, 1.1);
+    }
+    50% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes anim-pulse-delay{
+    
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1, 1);
+    }
+    75% {
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}

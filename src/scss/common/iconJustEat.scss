@@ -1,0 +1,216 @@
+
+$blowOutLength_lo : 250px;
+$blowOutLength_md : 600px;
+$blowOutLength_hi : 800px;
+
+$blowInLength_lo : 40px;
+
+$rayBurstAnim : 0.4s;
+
+.logoIcon{
+    overflow: hidden;
+    
+    position: absolute;
+    left:0;
+    top:0;
+    
+    
+    .logoHolder{
+        position: absolute;
+        left:2px;
+        top:4px;
+        right:2px;
+        bottom:18px;
+        display: block;
+        
+        @media (min-height: 250px) {
+            left:4px;
+            top:8px;
+            right:4px;
+            bottom:32px;
+        }
+        
+        @media (min-width: 700px) {
+            left:4px;
+            top:8px;
+            right:4px;
+            bottom:32px;
+        }
+        
+        .logo{
+            position: absolute;
+            left:0;
+            top:0;
+            width:100%;
+            height: 100%;
+            display: block;
+            
+            svg{
+                position: absolute;
+                left:0;
+                top:0;
+                width:100%;
+                height: 100%;
+                display: block;
+                
+                use{
+                    fill:#fff;
+                }
+            }
+        }
+    }
+    
+    .burst{
+        transition: left $rayBurstAnim ease-out, right $rayBurstAnim ease-out, top $rayBurstAnim ease-out, bottom $rayBurstAnim ease-out;
+    }
+    
+    .ray{
+        top:35px;
+        left:15px;
+        transition: left $rayBurstAnim ease-out, top $rayBurstAnim ease-out;
+        
+        @media (min-height: 250px) {
+            top:70px;
+            left:30px;
+        }
+        @media (min-width: 700px) {
+            top:70px;
+            left:30px;
+        }
+    }
+    
+    @each $label, $map in $positions {
+    
+        $length-start : map-get($map, icon-start-length);
+        $size-end : map-get($map, icon-end-size);
+        $rotate-start : map-get($map, icon-start-rotate);
+        $colour : map-get($map, colour);
+
+        .#{$label} {
+
+            transform: rotate($rotate-start);
+            
+            @include setWidth($size-end);
+            border-bottom: $length-start + $blowOutLength_lo solid $colour;
+            
+            @media (min-height: 250px) {
+                
+                @if $label == "fill-1" {
+                    @include setWidth($size-end + 300px);
+                    border-bottom: ($length-start + $blowOutLength_md - 400px) solid $colour;
+                } @else {
+                    @include setWidth($size-end + 200px); 
+                    border-bottom: ($length-start + $blowOutLength_md) solid $colour;
+                }
+                
+            }
+            @media (min-width: 400px) {
+                
+                @if $label == "fill-1" {
+                    @include setWidth($size-end + 300px);
+                    border-bottom: ($length-start + $blowOutLength_md - 400px) solid $colour;
+                } @else {
+                    @include setWidth($size-end + 200px); 
+                    border-bottom: ($length-start + $blowOutLength_md) solid $colour;
+                }
+                
+            }
+            @media (min-width: 700px) {
+                
+                @if $label == "fill-1" {
+                    @include setWidth($size-end + 400px);
+                    border-bottom: ($length-start + $blowOutLength_hi - 400px) solid $colour;
+                } @else {
+                    @include setWidth($size-end + 350px); 
+                    border-bottom: ($length-start + $blowOutLength_hi) solid $colour;
+                }
+                
+            }
+        }
+        
+        
+
+    }
+}
+    
+
+
+@mixin burstOut{
+    
+    overflow: visible;
+
+
+    .burst{
+
+        left:-300px;
+        right:-10px;
+        top:-10px;
+        bottom:-10px;
+        
+        @media (min-width: 400px) {
+            left:-450px;
+            right:-20px;
+            top:-20px;
+            bottom:-20px;
+        }
+        
+        @media (min-width: 700px) {
+            left: -650px;
+        }
+        
+        @media (min-height: 250px) {
+            left: -200px;
+            top: -20px;
+            right: -150px;
+            bottom: -200px;
+        }
+        
+        @media (min-height: 600px) {
+            bottom: -550px;
+        }
+
+        .ray{
+            top:35px + 10px;
+            left:15px + 300px;
+
+            @media (min-width: 400px) {
+                top:35px + 20px;
+                left:15px + 450px;
+            }
+            @media (min-width: 700px) {
+                top:70px + 20px;
+                left:30px + 650px;
+            }
+            @media (min-height: 250px) {
+                top:70px + 20px;
+                left:30px + 200px;
+            }
+        }
+    }
+}
+@mixin burstIn{
+    
+    overflow: visible;
+    
+    .burst{
+        
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        
+        .ray{
+            top:35px;
+            left:15px;
+            
+            @media (min-height: 250px) {
+                top:70px;
+                left:30px;
+            }
+            @media (min-width: 700px) {
+                top:70px;
+                left:30px;
+            }
+        }
+    }
+}

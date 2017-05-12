@@ -1,0 +1,119 @@
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+#container{
+    position: absolute;
+    left:0px;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    display: block;
+}
+
+.backgroundColour{
+    position: absolute;
+    left:0;
+    top:0;
+    right: 0;
+    bottom:0;
+    background-color: $BgWhite;
+    display: block;
+}
+
+html{
+    -webkit-text-size-adjust: 100%;
+    font-size: $fontBaseSize + px;
+    line-height: $fontBaseLine + px;
+}
+
+body{
+    position: static;
+    width:100%;
+    min-height: 100%;
+    display: block;
+    font-size: $fontBaseSize + px;
+    line-height: $fontBaseLine + px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.logoHolder{
+    position: absolute;
+    left:0;
+    right:0;
+    height:auto;
+    top:50%;
+    display: block;
+    text-align: center;
+}
+
+.burst{
+
+    .logoHolder{
+        margin: -10px 0 0 0;
+
+        @media (min-width: 250px) and (min-height: 90px) and (max-height: 399px){
+            margin: -20px 0 0 0;
+        }
+        @media (min-width: 300px) and (min-height: 400px){
+            margin: -20px 0 0 0;
+        }
+        @media (min-width: 700px) and (min-height: 400px){
+            margin: -35px 0 0 0;
+        }
+    }
+}
+
+.logo{
+    position: relative;
+    left:0;
+    top:0;
+    //width:200px;
+    //height: 40px;
+    width:100px;
+    height: 20px;
+    display: block;
+    margin:auto;
+    padding:0;
+    
+    @media (min-width: 250px) and (min-height: 90px) and (max-height: 399px){
+        width:200px;
+        height: 40px;
+    }
+    
+    @media (min-width: 300px) and (min-height: 400px){
+        width:200px;
+        height: 40px;
+    }
+    
+    @media (min-width: 700px) and (min-height: 400px){
+        width:330px;
+        height: 70px;
+    }
+}
+
+svg{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+    display: block;
+    
+    use{
+        fill: #fff;
+    }
+}
+
+.bannerBorder{
+    position: absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom: 0;
+    border: 1px solid $keyLines;
+    display: block;
+    box-sizing: border-box;
+    pointer-events: none;
+}
