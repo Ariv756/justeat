@@ -13,7 +13,8 @@ This test will demonstrate your ability to work with an example of one of our de
 7. Main html file to edit can be found in src/html/brand/richload/default.html
 8. Main scss file to edit can be found in src/scss/brand/default.scss
 9. Main scss file to edit can be found in src/js/brand/default/main.js
-10. Once you have started the local server, the banners can be accessed in the following url scheme :
+10. Run ```grunt release``` to populate the ```bin``` directory for the server.
+11. Once you have started the local server, the banners can be accessed in the following url scheme :
 Responsive working file : ```http://localhost:3000/banners/working/brand/default/index.html```
 Sized banners : ```http://localhost:3000/banners/sizes/brand/default/{size}/index.html```
 
@@ -29,8 +30,8 @@ To edit and build this project you'll need to install the following :
 
 The following commands can be run in the root of the repository to build/debug the banners.
 
-- Grunt start : Start running a local server to view banners and generate gifs.
-- Grunt watch : Updates debug version of the blog whilst you make changes.
+- Grunt start : Start running a local server to view banners.
+- Grunt watch : Updates debug version of the banners whilst you make changes.
 - Grunt debug : Builds a debug version of just the html5 banners.
 - Grunt release : Builds a release version of the html5 banners ready to test in flash talking.
 
