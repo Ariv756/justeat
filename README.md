@@ -35,7 +35,7 @@ The following commands can be run in the root of the repository to build/debug t
 - Grunt debug : Builds a debug version of just the html5 banners.
 - Grunt release : Builds a release version of the html5 banners ready to test in flash talking.
 
-Note, if you're overriding a css property using media queries, there property needs to be in the default properties for the rule. e.g.
+Note, if you're overriding a css property using media queries, the property needs to be in the default properties for the rule. e.g.
 
 **This will not work.**
 ```
