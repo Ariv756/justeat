@@ -2,7 +2,9 @@
 	"name": "brand-default",
 	"sizes": [
 		"300x50",
-        "300x250"
+		"300x250",
+		"120x600",
+		"320x50"
 	],
 	"clicktags": 2,
 	"files": {

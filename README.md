@@ -12,7 +12,7 @@ This test will demonstrate your ability to work with an example of one of our de
 6. The banner type is 'brand' and the set name is 'default'.
 7. Main html file to edit can be found in src/html/brand/richload/default.html
 8. Main scss file to edit can be found in src/scss/brand/default.scss
-9. Main scss file to edit can be found in src/js/brand/default/main.js
+9. Main js file to edit can be found in src/js/brand/default/main.js
 10. Run ```grunt release``` to populate the ```bin``` directory for the server.
 11. Once you have started the local server, the banners can be accessed in the following url scheme :
 Responsive working file : ```http://localhost:3000/banners/working/brand/default/index.html```
@@ -39,7 +39,7 @@ Note, if you're overriding a css property using media queries, the property need
 
 **This will not work.**
 ```
-.rule{ 
+.rule{
     height:100px;
     @media (min-height:250px){
         width:200px;
